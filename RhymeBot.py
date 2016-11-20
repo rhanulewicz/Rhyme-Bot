@@ -120,10 +120,12 @@ timeStart = time.time()
 root = [False, {}, False] #[isString, Children, isCovered]
 
 if not os.path.isfile('data/generated/dict.pickle'):
+    print("Writing dict.pickle to disk, please wait...")
     dict = parseDictionary()
     pickle_out = open("data/generated/dict.pickle","wb")
     pickle.dump(dict, pickle_out)
     pickle_out.close()
+    print('Finished writing dict.pickle (This will make subsequent runs much faster)')
 else:
     pickle_in = open("data/generated/dict.pickle", 'rb')
     dict = pickle.load(pickle_in)
@@ -132,10 +134,12 @@ else:
 inputPhrase = convertInputPhrase(dict)
 
 if not os.path.isfile('data/generated/phraseDict.pickle'):
+    print("Writing phraseDict.pickle to disk, please wait...")
     phraseDict = parsePhrases(dict)
     pickle_out = open("data/generated/phraseDict.pickle","wb")
     pickle.dump(phraseDict, pickle_out)
     pickle_out.close()
+    print("Finished writing phraseDict.pickle (This will make subsequent runs much faster)")
 else:
     pickle_in = open("data/generated/phraseDict.pickle",'rb')
     phraseDict = pickle.load(pickle_in)
@@ -143,6 +147,7 @@ else:
 
 
 if not os.path.isfile('data/generated/trieNodeList.pickle'):
+    print("Writing trie data structure to disk, please wait...")
     buildSuffixTrie(phraseDict,root)
     nodeList = []
     pickle_out = open('data/generated/trieNodeList.pickle', 'wb')
@@ -153,6 +158,7 @@ if not os.path.isfile('data/generated/trieNodeList.pickle'):
             pickle_out = open("data/generated/" + str(subtree) + "_" + str(subsubtree) + ".pickle", "wb")
             pickle.dump(root[1][subtree][1][subsubtree], pickle_out)
             pickle_out.close()
+    print('Finished writing trie across many files. (This will make subsequent runs much faster)')
 else:
     pickle_in = open("data/generated/" + str(inputPhrase[0]) + "_" + str(inputPhrase[1]) + ".pickle", "rb")
     root[1][inputPhrase[0]] = [False, {}, False]
