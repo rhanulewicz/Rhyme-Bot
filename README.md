@@ -8,7 +8,7 @@ For the sake of speed, this program will save a large amount of data to the disk
 
 # How-to
 
-This program is run from using command-line Python using the following parameters:
+This program is run using command-line Python using the following parameters:
 ```
 python RhymeBot.py dictionaryFilename sentenceListFilename k user_phrase
 ```
