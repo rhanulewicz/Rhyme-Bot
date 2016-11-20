@@ -4,7 +4,7 @@ Using a dictionary mapping words to their syllables, as well as a large list of 
 
 A rhyming dictionary is provided and its location will be given as the first command line parameter. This dictionary gives the pronunciation of ~134,000 english words. Any words that are given as input and do not appear on this list will have an unknown pronunciation and do not rhyme with any other word. Note that if a sentence ends with a word with known pronunciation and contains a word with unknown pronunciation that the sentence as a whole can still rhyme with the input and be returned as output.
 
-For the sake of speed, this program will generate save a large amount of data to the disk (approx 240mb) on its first run so that it can be read by the program very quickly on subsequent runs. This will all be saved in the data/generated folder. The first run will be very slow. Please be patient.
+For the sake of speed, this program will save a large amount of data to the disk (approx 240mb) on its first run so that it can be read by the program very quickly on subsequent runs. This will all be saved in the data/generated folder. The first run will be very slow. Please be patient.
 
 # How-to
 
